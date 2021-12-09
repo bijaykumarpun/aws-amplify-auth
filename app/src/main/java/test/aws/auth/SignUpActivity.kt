@@ -2,10 +2,13 @@ package test.aws.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.amplifyframework.auth.options.AuthSignUpOptions
+import com.amplifyframework.core.Amplify
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var buttonSignUp:Button
@@ -13,7 +16,7 @@ class SignUpActivity : AppCompatActivity() {
     lateinit var etPassword:EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_in)
+        setContentView(R.layout.activity_sign_up)
 
         //init ui
         buttonSignUp = findViewById(R.id.button_sign_up)
@@ -35,6 +38,16 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun performSignUp(username:String, password:String){
-        //Todo
+        val option:AuthSignUpOptions = AuthSignUpOptions.builder()
+            .build()
+        Amplify.Auth.signUp(username,password,option,{result->
+            Log.d("SignUp Success result:", result.toString())
+
+        }, { error ->
+            error.message?.let{
+                Log.d("Sign Up Error",it)
+            }
+        }
+        )
     }
 }

@@ -2,10 +2,15 @@ package test.aws.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.amplifyframework.auth.AuthException
+import com.amplifyframework.auth.result.AuthSignInResult
+import com.amplifyframework.core.Amplify
+import com.amplifyframework.core.Consumer
 
 class SignInActivity : AppCompatActivity() {
     lateinit var buttonSignIn:Button
@@ -36,6 +41,11 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun performSignIn(username:String, password:String){
-        //Todo
+        Amplify.Auth.signIn(username,password,
+            { value -> Log.d("Success Result",value.toString()) }) { value ->
+            value.message?.let {
+                Log.d("Error Result", it)
+            }
+        }
     }
 }
