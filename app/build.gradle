@@ -25,6 +25,9 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+        //for aws
+        coreLibraryDesugaringEnabled true
+
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -40,4 +43,10 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    //aws
+    implementation 'com.amplifyframework:aws-auth-cognito:1.30.1'
+    // Amplify core dependency
+    implementation 'com.amplifyframework:core:1.30.1'
+    // Support for Java 8 features
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 }
