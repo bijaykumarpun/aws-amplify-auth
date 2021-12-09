@@ -42,7 +42,10 @@ class SignInActivity : AppCompatActivity() {
 
     private fun performSignIn(username:String, password:String){
         Amplify.Auth.signIn(username,password,
-            { value -> Log.d("Success Result",value.toString()) }) { value ->
+            { value ->
+                Log.d("Success Result",value.toString())
+                })
+        { value ->
             value.message?.let {
                 Log.d("Error Result", it)
             }
