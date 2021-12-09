@@ -35,6 +35,12 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(Intent(this,SignInActivity::class.java))
         }
 
+        (findViewById<TextView>(R.id.goto_verification)).setOnClickListener{
+            val i = Intent(this,VerificationActivity::class.java)
+            i.putExtra("email",etUsername.text.toString())
+            startActivity(i)
+        }
+
     }
 
     private fun performSignUp(username:String, password:String){

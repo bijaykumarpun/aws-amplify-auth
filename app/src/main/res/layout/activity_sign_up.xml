@@ -33,4 +33,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <TextView
+        android:padding="8dp"
+        android:layout_margin="12dp"
+        android:id="@+id/goto_verification"
+        android:text="Verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>
