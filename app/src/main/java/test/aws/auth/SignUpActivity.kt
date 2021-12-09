@@ -47,11 +47,11 @@ class SignUpActivity : AppCompatActivity() {
         val option:AuthSignUpOptions = AuthSignUpOptions.builder()
             .build()
         Amplify.Auth.signUp(username,password,option,{result->
-            Log.d("SignUp Success result:", result.toString())
+            Log.d("Amplify success 4343", result.toString())
 
         }, { error ->
             error.message?.let{
-                Log.d("Sign Up Error",it)
+                Log.d("Amplify error 2323",it)
             }
         }
         )

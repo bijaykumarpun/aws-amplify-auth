@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.amplifyframework.core.Amplify
 
 class VerificationActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verification)
         val etUsername = findViewById<EditText>(R.id.verify_username)
         val verificationCode = findViewById<EditText>(R.id.verify_confirm_code)
@@ -25,14 +25,15 @@ class VerificationActivity : AppCompatActivity() {
         }
     }
 
+
     private fun verifyUser(email: String, verificationCode: String) {
 
         Amplify.Auth.confirmSignUp(email,verificationCode,{result->
-            Log.d("Verification success",result.nextStep.toString())
+            Log.d("Amplify success 212",result.nextStep.toString())
 
         },{
             it.message?.let{
-                Log.d("Verification error ",it)
+                Log.d("Amplify  error 323",it)
             }
         })
     }

@@ -43,11 +43,11 @@ class SignInActivity : AppCompatActivity() {
     private fun performSignIn(username:String, password:String){
         Amplify.Auth.signIn(username,password,
             { value ->
-                Log.d("Success Result",value.toString())
+                Log.d("Amplify Success 442",value.toString())
                 })
         { value ->
             value.message?.let {
-                Log.d("Error Result", it)
+                Log.d("Amplify Error 2323", it)
             }
         }
     }
