@@ -1,3 +1,5 @@
-# aws-auth
+# AWS Amplify Authentication
 
-This project was made to test authentication feature via AWS Amplify. 
+Using AWS Amplify for authenticating users
+
+https://aws.amazon.com/amplify/
